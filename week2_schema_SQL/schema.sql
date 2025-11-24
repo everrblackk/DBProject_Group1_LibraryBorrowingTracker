@@ -1,4 +1,4 @@
-CREATE DATABASE libraryBorrowingTracker;
+CREATE DATABASE IF NOT EXISTS libraryBorrowingTracker;
 
 USE libraryBorrowingTracker;
 
