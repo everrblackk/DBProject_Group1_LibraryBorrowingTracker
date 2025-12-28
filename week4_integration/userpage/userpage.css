@@ -1,0 +1,498 @@
+/* --- RESET DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    position: relative; /* Latar putih bersih sesuai gambar */
+    overflow-x: hidden; /* Mencegah scroll samping */
+}
+
+.bg-shape {
+    position: absolute; /* Agar bisa menempel di pojok layar */
+    top: 0;
+    right: 0;
+    width: 50%;    /* Lebar mencakup 45% layar */
+    height: 80vh; /* Tinggi setinggi layar penuh */
+    background-color: #abccd31e; /* Warna abu-abu muda */
+    
+    /* Trik membuat lengkungan besar (Seperempat lingkaran) */
+    border-bottom-left-radius: 100%; 
+    
+    z-index: -1; /* PENTING: Taruh di belakang semua konten */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex; /* KUNCI: Agar sejajar kiri-kanan */
+    justify-content: space-between; /* Pisahkan Logo (kiri) dan Menu (kanan) sejauh mungkin */
+    align-items: center;
+    padding: 20px 50px; /* Jarak dalam navbar */
+    background-color: transparent;
+
+    box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #cf9cff 0%, #2f79c3 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex; /* Agar menu berjejer ke samping */
+    gap: 50px; /* Jarak antar menu */
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #7f8c8d; /* Warna abu-abu soft */
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s;
+}
+
+/* Efek garis bawah ungu pada menu aktif seperti di gambar */
+.nav-links a.active {
+    color: #6c5ce7;
+    border-bottom: 2px solid #6c5ce7;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover {
+    color: #333;
+}
+
+/* --- NAVBAR SEARCH STYLE --- */
+
+/* Wrapper agar posisi li tidak berantakan */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+/* Desain Form (Bentuk Lonjong/Pill) */
+.nav-search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f1f2f6; /* Abu-abu sangat muda */
+    border-radius: 20px;       /* Sudut membulat */
+    padding: 5px 15px;         /* Jarak dalam */
+    border: 1px solid #dfe6e9; /* Garis tepi tipis */
+    transition: all 0.3s ease;
+}
+
+/* Efek saat form diklik/aktif */
+.nav-search-form:focus-within {
+    border-color: #6c5ce7;       /* Garis berubah ungu */
+    background-color: white;     /* Background jadi putih */
+    box-shadow: 0 0 5px rgba(108, 92, 231, 0.2);
+}
+
+/* Input Teksnya */
+.nav-search-form input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    width: 150px; /* Lebar input */
+    color: #2d3436;
+}
+
+/* Tombol Kaca Pembesar */
+.nav-search-form button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.nav-search-form button:hover {
+    transform: scale(1.1); /* Efek membesar dikit saat di-hover */
+}
+
+
+
+/* --- HERO SECTION (Bagian Utama) --- */
+.hero-container {
+    display: flex; /* Bagi layar jadi 2 kolom */
+    align-items: center; /* Konten rata tengah secara vertikal */
+    justify-content: space-between;
+    padding: 50px 80px; /* Jarak dari pinggir layar */
+    min-height: 80vh; /* Tinggi minimal 80% layar */
+    position: relative;
+}
+
+/* -- Kolom Kiri (Teks) -- */
+.hero-text {
+    flex: 1; /* Mengambil ruang 50% */
+    max-width: 600px;
+    z-index: 10; /* Agar teks di atas dekorasi */
+}
+
+.hero-text h1 {
+    font-size: 60px; /* Ukuran font besar */
+    line-height: 1.2;
+    color: #2d3436;
+    margin-bottom: 20px;
+    font-weight: 500; /* Font tipis tapi besar (elegan) */
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #636e72;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 450px;
+}
+
+/* -- Tombol Gradasi (Gradient Button) -- */
+.btn-explore {
+    text-decoration: none;
+    /* Membuat warna gradasi ungu ke biru */
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe); 
+    color: white;
+    padding: 15px 30px;
+    border-radius: 30px; /* Sudut membulat */
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3); /* Bayangan ungu halus */
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+.btn-explore:hover {
+    transform: translateY(-3px); /* Efek naik saat di-hover */
+}
+
+/* -- Kolom Kanan (Gambar & Dekorasi) -- */
+.hero-image {
+    flex: 1; /* Mengambil ruang 50% */
+    display: flex;
+    justify-content: flex-end; /* Gambar rapat kanan */
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px; /* Batasi ukuran gambar */
+    z-index: 2; /* Agar gambar di atas blob background */
+    position: relative;
+}
+
+/* -- Dekorasi Blob (Bulatan Abstrak) -- */
+/* Ini trik CSS untuk membuat background warna-warni seperti di gambar */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px); /* Efek blur agar seperti asap/cahaya */
+    z-index: 1;
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px; /* Ungu transparan */
+    right: 50px;
+    top: 50px;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px; /* Biru muda transparan */
+    right: 300px;
+    bottom: -50px;
+}
+
+/* --- Responsif untuk HP (Mobile) --- 
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none; /* Menu disembunyikan dulu di HP (bisa diganti hamburger menu) 
+    }
+
+    .hero-container {
+        flex-direction: column; /* Ubah jadi tumpuk ke bawah 
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        margin: 0 auto 30px auto; 
+    }
+
+    .hero-image {
+        margin-top: 50px;
+        justify-content: center;
+    }
+*/
+
+/* --- FEATURED SECTION --- */
+.featured-section {
+    padding: 50px 80px; /* Samakan padding dengan Hero Section */
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2d3436;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- GRID LAYOUT (Kunci Desain) --- */
+.featured-grid {
+    display: grid;
+    /* Kita buat 5 kolom dengan ukuran sama */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 25px; /* Jarak antar kartu */
+}
+
+/* --- STYLE DASAR KARTU --- */
+.card {
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek naik dikit pas di-hover */
+}
+
+/* --- KARTU BESAR (BIRU) --- */
+.card-large {
+    /* MENGAMBIL 2 KOLOM */
+    grid-column: span 2; 
+    
+    background: linear-gradient(135deg, #74b9ff, #a29bfe); /* Gradasi Biru-Ungu */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 20px rgba(116, 185, 255, 0.4);
+}
+
+.card-large h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.card-large p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.img-large {
+    width: 120px; /* Sesuaikan ukuran gambar buku besar */
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
+}
+
+/* --- KARTU KECIL (PUTIH) --- */
+.card-small {
+    /* Default mengambil 1 kolom (tidak perlu ditulis) */
+    
+    background: white;
+    border: 1px solid #f1f2f6; /* Garis tipis */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Bayangan halus */
+    text-align: center; /* Teks rata tengah */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efek background warna-warni tipis (Glassmorphism look) */
+.card-small::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(223, 249, 251, 0.5));
+    z-index: 0;
+}
+
+.card-small h3, .card-small p, .small-img-wrapper {
+    position: relative;
+    z-index: 1; /* Supaya konten di atas background */
+}
+
+.card-small h3 {
+    font-size: 16px;
+    color: #2d3436;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.card-small p {
+    font-size: 12px;
+    color: #b2bec3;
+}
+
+.small-img-wrapper img {
+    width: 60px;
+    opacity: 0.8;
+}
+
+/* --- RESPONSIVE (MOBILE) --- 
+@media (max-width: 768px) {
+    .featured-grid {
+         Di HP, ubah jadi 1 kolom ke bawah semua 
+        grid-template-columns: 1fr; 
+    }
+    
+    .card-large {
+        grid-column: span 1;  Balikin jadi 1 kolom penuh 
+    }
+} */
+
+/* --- SERVICES SECTION --- */
+.services-section {
+    padding: 50px 80px;
+    margin-bottom: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Kolom */
+    gap: 30px;
+}
+
+.service-card {
+    background: white;
+    border: 1px solid #f1f2f6;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    /* Bayangan tipis warna-warni seperti di gambar */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    /* Saat hover, border jadi berwarna gradasi (simulasi) */
+    border-color: #a29bfe;
+    box-shadow: 0 15px 30px rgba(108, 92, 231, 0.15);
+}
+
+.icon-wrapper img {
+    width: 50px;
+    margin-bottom: 20px;
+    opacity: 0.7; /* Agar ikon tidak terlalu mencolok (lebih soft) */
+}
+
+.service-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2d3436;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: #b2bec3;
+    line-height: 1.6;
+}
+
+
+/* --- HALAMAN CATALOG (BOOKS) --- */
+
+/* Grid Utama: Otomatis mengisi kolom sesuai lebar layar */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px; /* Jarak antar kartu */
+    padding-bottom: 50px;
+}
+
+/* Desain Kartu Buku */
+.book-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar tidak keluar dari sudut membulat */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Bayangan halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f1f2f6;
+}
+
+/* Efek saat mouse di atas kartu */
+.book-card:hover {
+    transform: translateY(-5px); /* Naik sedikit */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Bagian Cover Buku (Placeholder icon buku) */
+.book-cover {
+    height: 180px;
+    background: linear-gradient(to bottom right, #dfe6e9, #b2bec3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px; /* Ukuran emoji buku */
+}
+
+/* Bagian Informasi (Judul, Penulis, Status) */
+.book-info {
+    padding: 20px;
+}
+
+.book-info h3 {
+    font-size: 18px;
+    color: #2d3436;
+    margin-bottom: 5px;
+    line-height: 1.4;
+    
+    /* Trik memotong teks jika judul terlalu panjang (max 2 baris) */
+    display: -webkit-box;
+    -webkit-line-clam: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.book-info .author {
+    font-size: 14px;
+    color: #636e72;
+    margin-bottom: 15px;
+}
+
+/* Badge Status (Available/Borrowed) */
+.status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-green {
+    background-color: #e8f5e9;
+    color: #27ae60; /* Hijau */
+}
+
+.status-red {
+    background-color: #ffebee;
+    color: #c0392b; /* Merah */
+}
